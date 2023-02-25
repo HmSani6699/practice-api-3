@@ -16,29 +16,27 @@ const loadData = async (searchText) => {
 }
 const displayData = (countries) => {
     const container = document.getElementById('container');
+    container.innerHTML = '';
     countries.forEach(country => {
-        console.log(country);
         const div = document.createElement('div');
         div.classList.add('card', 'w-full', 'bg-base-100', 'shadow-xl');
         div.innerHTML = `
          <figure class="px-10 pt-10">
-             <img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+             <img style="height: 100px; width: 200px;" src="${country.flags.png}"
                 alt="Shoes"
                 class="rounded-xl" />
          </figure>
          <div
-           class="card-body items-center text-center">
-            <h2 class="card-title">Shoes!</h2>          
-                <p>If a dog chews shoes
-                    whose shoes does he
-                    choose?</p>
+           class="card-body">
+            <h2 class="text-2xl font-medium text-center">${country.name.common}</h2>          
+                <p class="text-center"><span class="font-semibold">Area</span> : ${country.area}</p>
                 <div class="card-actions">
                     <button
-                        class="btn btn-primary">Buy
-                        Now</button>
+                        class="btn btn-primary w-full">Details</button>
                 </div>
          </div>
-        `
+        `;
+        container.appendChild(div)
     });
 }
 loadData('german')
