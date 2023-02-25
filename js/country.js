@@ -39,4 +39,4 @@ const displayData = (countries) => {
         container.appendChild(div)
     });
 }
-loadData('german')
+loadData('Albanian')
